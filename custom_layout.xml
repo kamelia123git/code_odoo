@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="bon_preparation_custom_layout">
+        <t t-call="web.html_container">
+            <t t-if="not o" t-set="o" t-value="doc"/>
+
+            <div class="header">
+                <div class="row" style="padding-top: 10px;">
+                    <div class="col-8">
+                        <span t-field="o.company_id.name"/><br/>
+                        <span t-field="o.company_id.street"/><br/>
+                        <span t-field="o.company_id.zip"/> <span t-field="o.company_id.city"/><br/>
+                        <span t-field="o.company_id.phone"/><br/>
+                        <span t-field="o.company_id.email"/><br/>
+                        <span t-field="o.company_id.website"/>
+                    </div>
+                    <div class="col-4 text-right">
+                        <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="max-height: 100px;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12"><hr style="border-top: 1px solid #000; margin-top: 10px; margin-bottom: 20px;"/></div>
+                </div>
+            </div>
+
+            <t t-raw="0"/>
+
+            <div class="footer">
+                <div class="text-center">
+                    Page <span class="page"/> / <span class="topage"/>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
